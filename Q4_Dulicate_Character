@@ -1,0 +1,35 @@
+import java.util.HashSet;
+import java.util.Set;
+
+public class DuplicateCharacters {
+    
+    public static void findDuplicateCharacters(String str) {
+        // Create a HashSet to store duplicate characters
+        Set<Character> duplicates = new HashSet<>();
+        // Create a HashSet to store unique characters
+        Set<Character> unique = new HashSet<>();
+        
+        // Iterate through each character of the string
+        for (char ch : str.toCharArray()) {
+            // If the character is already present in the unique set, add it to the duplicates set
+            if (!unique.add(ch)) {
+                duplicates.add(ch);
+            }
+        }
+        
+        // Print the duplicate characters
+        if (!duplicates.isEmpty()) {
+            System.out.println("Duplicate characters in the string:");
+            for (char ch : duplicates) {
+                System.out.print(ch + " ");
+            }
+        } else {
+            System.out.println("No duplicate characters found in the string.");
+        }
+    }
+
+    public static void main(String[] args) {
+        String str = "Hello World";
+        findDuplicateCharacters(str); // Output: l o
+    }
+}
